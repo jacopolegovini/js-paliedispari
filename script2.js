@@ -12,7 +12,8 @@
 // Crea la funzione per stabilire se la somma dei due numeri sia pari o dispari
 //     Aggiungi la somma come parametro della funzione
 //     Con la somma usa l'operatore modulo
-// Aggiungi evento al bottone
+// Aggiungi evento ai bottoni pari e dispari
+// Aggiungi evento al bottone "Scopri chi ha vinto"
 // Inserisci le funzioni
 // Dichiara il vincitore
 
@@ -25,7 +26,25 @@ const buttonWinnerElement = document.getElementById('winner');
 const resultElement = document.querySelector('p');
 
 // Crea le variabili
-
+let sum = 0;
 
 // Crea la funzione per generare un numero casuale
+function getRandomNumber () {
+    let randomNumber = Math.floor((Math.random() * 5) + 1);
+    return randomNumber;
+}
 
+
+// Crea la funzione per stabilire se la somma dei due numeri sia pari o dispari
+function isOdd(sum) {
+    let sumType = false
+    if (sum % 2 === 0) {
+        sumType = true;
+        return sumType;
+    } else {
+        return sumType;
+    }
+}
+
+
+// Aggiungi evento al bottone
