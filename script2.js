@@ -13,8 +13,13 @@
 //     Aggiungi la somma come parametro della funzione
 //     Con la somma usa l'operatore modulo
 // Aggiungi evento ai bottoni pari e dispari
-// Inserisci le funzioni
-// Dichiara il vincitore
+    // Dichiaro variabili
+    // Richiamo funzione random
+    // Ottengo numero utente
+    // Eseguo la somma
+    // Richiamo la funzione isOdd
+    // Condizione a seconda del risultato
+    // Stampo il risultato
 
 
 // Recupera elementi dal DOM
@@ -24,15 +29,19 @@ const numberElement = document.getElementById('number');
 const buttonWinnerElement = document.getElementById('winner');
 const resultElement = document.querySelector('p');
 
+
 // Crea le variabili
 let sum = 0;
+let outcome = '';
+const max = 5
+const evenChoice = true;
+
 
 // Crea la funzione per generare un numero casuale
-function getRandomNumber () {
-    let randomNumber = Math.floor((Math.random() * 5) + 1);
+function getRandomNumber (max) {
+    let randomNumber = Math.floor((Math.random() * max) + 1);
     return randomNumber;
 }
-
 
 // Crea la funzione per stabilire se la somma dei due numeri sia pari o dispari
 function isOdd(sum) {
@@ -45,17 +54,23 @@ function isOdd(sum) {
     }
 }
 
-
-// Aggiungi evento ai bottoni pari e dispari
-evenElement.addEventListener('click', function(event) {
-    event.preventDefault();
+function getOutCome (evenChoice) {
+    // Dichiara variabili
+    let evenWin = '';
+    let oddWin = '';
     
-    // Dichiaro variabili
-    let outcome = '';
+    // Stringa per da inserire al print con condizione a seconda dell'argomento
+    if (evenChoice) {
+        evenWin = 'Hai vinto';
+        oddWin = 'Hai perso';
+    } else {
+        evenWin = 'Hai perso';
+        oddWin = 'Hai vinto';
+    }
 
     // Richiamo funzione random
-    let randomNumber = getRandomNumber();
-    
+    let randomNumber = getRandomNumber(max);
+
     // Ottengo numero utente
     let userNumber = parseInt(numberElement.value);
 
@@ -66,42 +81,23 @@ evenElement.addEventListener('click', function(event) {
     let odd = isOdd(sum);
 
     // Condizione a seconda del risultato
-    if (odd) {
-        outcome = 'Hai vinto';
-    } else {
-        outcome = 'Hai perso';
-    }
+    outcome = odd ? evenWin : oddWin;
 
     // Stampo il risultato
-    resultElement.innerHTML = `La somma è ${sum}.<br>${outcome}!`
+    return `La somma è ${sum}.<br>${outcome}!`
+}
+
+
+// Aggiungi evento ai bottoni pari e dispari
+evenElement.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    resultElement.innerHTML = getOutCome(evenChoice);
 })
 
 oddElement.addEventListener('click', function(event) {
     event.preventDefault();
 
-        // Dichiaro variabili
-        let outcome = '';
-
-        // Richiamo funzione random
-        let randomNumber = getRandomNumber();
-        
-        // Ottengo numero utente
-        let userNumber = parseInt(numberElement.value);
-    
-        // Eseguo la somma
-        sum = randomNumber + userNumber;
-        
-        // Richiamo la funzione isOdd
-        let odd = isOdd(sum);
-    
-        // Condizione a seconda del risultato
-        if (!odd) {
-            outcome = 'Hai vinto';
-        } else {
-            outcome = 'Hai perso';
-        }
-    
-        // Stampo il risultato
-        resultElement.innerHTML = `La somma è ${sum}.<br>${outcome}!`
+    resultElement.innerHTML = getOutCome();
 })
 
