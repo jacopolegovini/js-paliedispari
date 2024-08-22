@@ -4,32 +4,37 @@
 
 
 // Recupera elementi dal DOM
+// Crea una flag
 // Crea funzione
     // Crea array con la parola immessa
     // Controlla se la prima lettera corrisponde all'ultima e poi prosegui con le altre
     // Ritorna il risultato in booleano
 // Aggiungi event.Listener per il bottone
-// Stampa il risultato
+    // Recupera il valore della parola
+    // Fai partire la funzione
+    // Monta tutto
+    // Stampa il risultato
 
 
 // Recupera elementi dal DOM
 const wordElement = document.getElementById('word');
 const resultElement = document.getElementById('result');
-const button = 
+const button = document.querySelector('button');
+
+// Crea le variabili
+let word = '';
+
+// Crea una flag
+let palindrome = false
 
 
 // Crea funzione
 /**
- * This function verify if the value "word" is palindrome
- * @param {string} word 
+ * This function verify if the value "word" is palindrome 
  * @returns boolean
  */
 function isPalindrome() {
-    // Dichiara una flag
-    let palindrome = false
-
     // Crea array con la parola immessa
-    let word = 'saippuakivikauppias';
     const arrayWord = word.split('');
     console.log (arrayWord)
     let i = 0
@@ -44,9 +49,22 @@ function isPalindrome() {
     return palindrome;
 }
 
-console.log(isPalindrome())
 
 // Aggiungi event.Listener per il bottone
-button
+button.addEventListener('click', function(event) {
+    event.preventDefault();
 
-// Stampa il risultato
+    // Recupera il valore della parola
+    word = wordElement.value;
+
+    // Fai partire la funzione
+    isPalindrome();
+    
+    // Monta tutto
+    let result = palindrome === true ? `La parola scritta è un palindromo` : `La parola scritta non è un palindromo`;
+
+    // Stampa il risultato
+    resultElement.innerHTML = result;
+})
+
+
