@@ -12,14 +12,17 @@
 // Crea la funzione per stabilire se la somma dei due numeri sia pari o dispari
 //     Aggiungi la somma come parametro della funzione
 //     Con la somma usa l'operatore modulo
-// Aggiungi evento ai bottoni pari e dispari
+// Crea la funzione che le contenga entrambe
     // Dichiaro variabili
+    // Stringa per da inserire al print con condizione a seconda dell'argomento
     // Richiamo funzione random
     // Ottengo numero utente
     // Eseguo la somma
     // Richiamo la funzione isOdd
     // Condizione a seconda del risultato
     // Stampo il risultato
+// Aggiungi evento ai bottoni pari e dispari
+    
 
 
 // Recupera elementi dal DOM
@@ -74,9 +77,14 @@ function getOutCome (evenChoice) {
     // Ottengo numero utente
     let userNumber = parseInt(numberElement.value);
 
+    // Convalida
+    if (isNaN(userNumber)) {
+        userNumber = 0;
+    }
+
     // Eseguo la somma
     sum = randomNumber + userNumber;
-    
+
     // Richiamo la funzione isOdd
     let odd = isOdd(sum);
 
