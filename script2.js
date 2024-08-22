@@ -17,6 +17,7 @@
     // Stringa per da inserire al print con condizione a seconda dell'argomento
     // Richiamo funzione random
     // Ottengo numero utente
+    // Convalida
     // Eseguo la somma
     // Richiamo la funzione isOdd
     // Condizione a seconda del risultato

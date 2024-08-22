@@ -41,7 +41,11 @@ function isPalindrome() {
 
     // Controlla se la prima lettera corrisponde all'ultima e poi prosegui con le altre
     while (arrayWord[i] === arrayWord[arrayWord.length - (i + 1)] && i < arrayWord.length) {
-        if (i === arrayWord.length - 1) palindrome = true;
+        if (i === arrayWord.length - 1) {
+            palindrome = true;
+        } else {
+            palindrome = false;
+        }
         i++;
     }
 
