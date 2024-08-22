@@ -51,16 +51,37 @@ function isOdd(sum) {
 evenElement.addEventListener('click', function(event) {
     event.preventDefault();
     
+    // Dichiaro variabili
+    evenOrOdd = 'even';
+    let outcome = false;
+
+    // Richiamo funzione random
     let randomNumber = getRandomNumber();
     
+    // Ottengo numero utente
     let userNumber = parseInt(numberElement.value);
-    sum = randomNumber + userNumber;
 
+    // Eseguo la somma
+    sum = randomNumber + userNumber;
+    
+    // Richiamo la funzione isOdd
+    let odd = isOdd(sum);
+
+    console.log(randomNumber)
+    console.log(userNumber)
     console.log(sum)
 
-    evenOrOdd = 'even';
-    console.log(evenOrOdd)
+    console.log(odd)
 
+    // Condizione a seconda del risultato
+    if (odd) {
+        outcome = 'Hai vinto';
+    } else {
+        outcome = 'Hai perso';
+    }
+
+    // Stampo il risultato
+    resultElement.innerHTML = `La somma è ${sum}.<br>${outcome}!`
 })
 
 oddElement.addEventListener('click', function(event) {
