@@ -26,7 +26,6 @@ const resultElement = document.querySelector('p');
 
 // Crea le variabili
 let sum = 0;
-let evenOrOdd = '';
 
 // Crea la funzione per generare un numero casuale
 function getRandomNumber () {
@@ -52,8 +51,7 @@ evenElement.addEventListener('click', function(event) {
     event.preventDefault();
     
     // Dichiaro variabili
-    evenOrOdd = 'even';
-    let outcome = false;
+    let outcome = '';
 
     // Richiamo funzione random
     let randomNumber = getRandomNumber();
@@ -66,12 +64,6 @@ evenElement.addEventListener('click', function(event) {
     
     // Richiamo la funzione isOdd
     let odd = isOdd(sum);
-
-    console.log(randomNumber)
-    console.log(userNumber)
-    console.log(sum)
-
-    console.log(odd)
 
     // Condizione a seconda del risultato
     if (odd) {
@@ -87,7 +79,29 @@ evenElement.addEventListener('click', function(event) {
 oddElement.addEventListener('click', function(event) {
     event.preventDefault();
 
-    evenOrOdd = 'odd';
-    console.log(evenOrOdd)
+        // Dichiaro variabili
+        let outcome = '';
+
+        // Richiamo funzione random
+        let randomNumber = getRandomNumber();
+        
+        // Ottengo numero utente
+        let userNumber = parseInt(numberElement.value);
+    
+        // Eseguo la somma
+        sum = randomNumber + userNumber;
+        
+        // Richiamo la funzione isOdd
+        let odd = isOdd(sum);
+    
+        // Condizione a seconda del risultato
+        if (!odd) {
+            outcome = 'Hai vinto';
+        } else {
+            outcome = 'Hai perso';
+        }
+    
+        // Stampo il risultato
+        resultElement.innerHTML = `La somma è ${sum}.<br>${outcome}!`
 })
 
