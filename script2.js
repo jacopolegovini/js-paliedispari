@@ -13,7 +13,6 @@
 //     Aggiungi la somma come parametro della funzione
 //     Con la somma usa l'operatore modulo
 // Aggiungi evento ai bottoni pari e dispari
-// Aggiungi evento al bottone "Scopri chi ha vinto"
 // Inserisci le funzioni
 // Dichiara il vincitore
 
@@ -27,6 +26,7 @@ const resultElement = document.querySelector('p');
 
 // Crea le variabili
 let sum = 0;
+let evenOrOdd = '';
 
 // Crea la funzione per generare un numero casuale
 function getRandomNumber () {
@@ -47,4 +47,26 @@ function isOdd(sum) {
 }
 
 
-// Aggiungi evento al bottone
+// Aggiungi evento ai bottoni pari e dispari
+evenElement.addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    let randomNumber = getRandomNumber();
+    
+    let userNumber = parseInt(numberElement.value);
+    sum = randomNumber + userNumber;
+
+    console.log(sum)
+
+    evenOrOdd = 'even';
+    console.log(evenOrOdd)
+
+})
+
+oddElement.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    evenOrOdd = 'odd';
+    console.log(evenOrOdd)
+})
+
